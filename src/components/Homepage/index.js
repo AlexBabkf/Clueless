@@ -1,5 +1,6 @@
 import ProductCard from "../ProductCard";
 import { products } from "@/lib/testjson";
+import { StyledList } from "./styledProductList";
 
 export default function Homepage() {
   const testCategories = [
@@ -11,17 +12,19 @@ export default function Homepage() {
   ];
 
   return (
-    <div className="productContainer">
+    <StyledList>
       {testCategories.map((cat) => (
-        <div className="productList" key={cat}>
+        <>
           <h2>{cat}</h2>
-          {products
-            .filter((product) => product.category === cat)
-            .map((product) => (
-              <ProductCard key={product.name} product={product} />
-            ))}
-        </div>
+          <div className="item" key={cat}>
+            {products
+              .filter((product) => product.category === cat)
+              .map((product) => (
+                <ProductCard key={product._id} product={product} />
+              ))}
+          </div>
+        </>
       ))}
-    </div>
+    </StyledList>
   );
 }
