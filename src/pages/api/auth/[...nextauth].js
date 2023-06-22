@@ -10,6 +10,7 @@ export const authOptions = {
     GithubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
+      //   callbackUrl: `${process.env.NEXTAUTH_URL}/api/auth/callback/github`,
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
