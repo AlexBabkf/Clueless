@@ -14,7 +14,7 @@ export default function Homepage() {
   return (
     <StyledList>
       {testCategories.map((cat) => (
-        <>
+        <div key={cat}>
           <h2>{cat}</h2>
           <div className="item" key={cat}>
             {products
@@ -23,7 +23,7 @@ export default function Homepage() {
                 <ProductCard key={product._id} product={product} />
               ))}
           </div>
-        </>
+        </div>
       ))}
     </StyledList>
   );
