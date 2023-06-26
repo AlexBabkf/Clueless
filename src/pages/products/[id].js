@@ -1,16 +1,32 @@
 import ProductDetails from "@/components/ProductDetails";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import { useEffect } from "react";
 
-export default function DetailedProduct({ products }) {
+export default function DetailedProduct({ data }) {
   const router = useRouter();
 
   const { id } = router.query;
-  const product = products.find((product) => product._id == id);
+  const [beer, setBeer] = useState(null);
 
-  if (!product) {
-    return null;
-  }
+  useEffect(() => {
+    function findBeerById(id) {
+      for (const category of data) {
+        const beers = Object.values(category)[0];
+        const foundBeer = beers.find((beer) => beer.id === parseInt(id));
 
-  return <ProductDetails product={product} />;
+        if (foundBeer) {
+          return foundBeer;
+        }
+      }
+    }
+    if (id) {
+      const foundBeer = findBeerById(id);
+      setBeer(foundBeer);
+    }
+  }, [id, data]);
+
+  if (!beer) return;
+
+  return <ProductDetails beer={beer} />;
 }
