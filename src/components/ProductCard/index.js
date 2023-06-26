@@ -2,22 +2,22 @@ import Image from "next/image";
 import { StyledCard } from "./styledProductCard";
 import Link from "next/link";
 
-export default function ProductCard({ product }) {
-  const { name, image, price } = product;
+export default function ProductCard({ beer }) {
+  const { id, name, tagline, image_url } = beer;
   return (
     <StyledCard>
-      <Link href={`/products/${product._id}`}>
+      <Link href={`/products/${id}`}>
         <img
-          src={image}
+          src={image_url}
           alt="name"
-          width={200}
-          height={200}
+          width={80}
+          height={100}
           className="card__image"
         ></img>
       </Link>
       <div className="card__content">
         <h3>{name}</h3>
-        <h4>{price}</h4>
+        <h4>{tagline}</h4>
       </div>
     </StyledCard>
   );

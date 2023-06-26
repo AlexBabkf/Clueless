@@ -1,30 +1,24 @@
 import ProductCard from "../ProductCard";
-import { products } from "@/lib/testjson";
 import { StyledList } from "./styledProductList";
 
-export default function Homepage() {
-  const testCategories = [
-    "Electronics",
-    "Home and Kitchen",
-    "Fashion",
-    "Beauty and Personal Care",
-    "Sports and Outdoors",
-  ];
-
+export default function Homepage({ data }) {
   return (
     <StyledList>
-      {testCategories.map((cat) => (
-        <div key={cat}>
-          <h2>{cat}</h2>
-          <div className="item" key={cat}>
-            {products
-              .filter((product) => product.category === cat)
-              .map((product) => (
-                <ProductCard key={product._id} product={product} />
+      {data.map((categoryData) => {
+        const category = Object.keys(categoryData)[0];
+        const beers = categoryData[category];
+
+        return (
+          <div key={category}>
+            <h2>{category} malt</h2>
+            <div className="item">
+              {beers.map((beer) => (
+                <ProductCard key={beer.id} beer={beer} />
               ))}
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </StyledList>
   );
 }
