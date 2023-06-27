@@ -1,4 +1,3 @@
-import clientPromise from "@/lib/mongoose";
 import User from "@/models/User";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./auth/[...nextauth]";
@@ -13,7 +12,7 @@ export default async function handler(req, res) {
     const user = await User.findById(id);
     res.json({ user });
   }
-
+  console.log("USER");
   if (req.method === "PATCH") {
     const name = req.body;
     console.log(req.body);

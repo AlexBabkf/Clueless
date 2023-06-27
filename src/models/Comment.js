@@ -3,8 +3,10 @@ const { Schema } = mongoose;
 
 const commentSchema = new Schema(
   {
-    author: { type: mongooseTypes.ObjectId, ref: "User" },
-    text: String,
+    userName: String,
+    userId: String,
+    comment: String,
+    beerId: String,
   },
   { timestamps: true }
 );
