@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { SessionProvider } from "next-auth/react";
 import Header from "@/components/Header";
 import useSWR from "swr";
+import NavigationBar from "@/components/Navigation";
 
 export default function App({ Component, pageProps }) {
   const malzCategories = ["Pilsner", "Ale", "Lager", "Caramalt", "Munich"];
@@ -28,6 +29,7 @@ export default function App({ Component, pageProps }) {
     <SessionProvider session={pageProps.session}>
       <Header />
       <Component {...pageProps} data={data} />
+      <NavigationBar />
     </SessionProvider>
   );
 }
