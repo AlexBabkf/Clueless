@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 export const StyledList = styled.div`
   display: flex;
-  /* overflow-x: auto; */
   scroll-behavior: smooth;
   flex-direction: column;
   background-color: limegreen;
