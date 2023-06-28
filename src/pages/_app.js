@@ -3,8 +3,11 @@ import { SessionProvider } from "next-auth/react";
 import Header from "@/components/Header";
 import useSWR from "swr";
 import NavigationBar from "@/components/Navigation";
+import { useState } from "react";
 
 export default function App({ Component, pageProps }) {
+  const [likedBeers, setLikedBeers] = useState([]);
+
   const malzCategories = ["Pilsner", "Ale", "Lager", "Caramalt", "Munich"];
 
   const fetchData = async () => {
@@ -25,10 +28,19 @@ export default function App({ Component, pageProps }) {
 
   if (!data) return;
 
+  const handleLike = (id) => {
+    setLikedBeers((previous) => [...previous, id]);
+  };
+
   return (
     <SessionProvider session={pageProps.session}>
       <Header />
-      <Component {...pageProps} data={data} />
+      <Component
+        {...pageProps}
+        data={data}
+        likedBeers={likedBeers}
+        handleLike={handleLike}
+      />
       <NavigationBar />
     </SessionProvider>
   );
