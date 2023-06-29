@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import useSWR from "swr";
 import NavigationBar from "@/components/Navigation";
 import { useState } from "react";
+import TopButton from "@/components/TopButton";
 
 export default function App({ Component, pageProps }) {
   const [likedBeers, setLikedBeers] = useState([]);
@@ -41,6 +42,7 @@ export default function App({ Component, pageProps }) {
         likedBeers={likedBeers}
         handleLike={handleLike}
       />
+      <TopButton />
       <NavigationBar />
     </SessionProvider>
   );
