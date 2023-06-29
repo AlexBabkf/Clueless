@@ -7,9 +7,10 @@ export default function ProductCard({ handleLike, beer }) {
   const { id, name, tagline, image_url } = beer;
 
   const [liked, setLiked] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchLiked = async () => {
+    async function fetchLiked() {
       try {
         const response = await fetch("/api/users");
         const data = await response.json();
@@ -19,11 +20,14 @@ export default function ProductCard({ handleLike, beer }) {
         }
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(true);
       }
-    };
-
-    fetchLiked();
-  }, []);
+    }
+    if (loading) {
+      fetchLiked();
+    }
+  }, [loading]);
 
   const isLiked = liked.includes(id);
   async function updateLike() {
@@ -37,7 +41,7 @@ export default function ProductCard({ handleLike, beer }) {
         },
         body: JSON.stringify({ beerId: id }),
       });
-
+      console.log("LIKE");
       if (response.ok) {
         handleLike(id);
         setLiked(
@@ -53,13 +57,13 @@ export default function ProductCard({ handleLike, beer }) {
     <StyledCard>
       <button onClick={updateLike}>{isLiked ? "UnLike" : "Like"}</button>
       <Link href={`/products/${id}`}>
-        <img
-          src={image_url}
+        <Image
+          src={image_url ?? "/Untitled.jpg"}
           alt="name"
-          width={80}
-          height={100}
+          width={50}
+          height={150}
           className="card__image"
-        ></img>
+        />
       </Link>
       <div className="card__content">
         <h3>{name}</h3>

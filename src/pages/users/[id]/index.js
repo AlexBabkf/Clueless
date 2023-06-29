@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ProfilePage() {
   const { data: session } = useSession();
@@ -18,13 +19,17 @@ export default function ProfilePage() {
 
   async function changeName(event) {
     event.preventDefault();
+    const confirmation = window.confirm(
+      "Are you sure you want to change your username?"
+    );
 
-    await fetch("/api/users", {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(username),
-    });
-
+    if (confirmation) {
+      await fetch("/api/users", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(username),
+      });
+    }
     router.reload();
   }
 
@@ -47,12 +52,17 @@ export default function ProfilePage() {
 
   return (
     <div>
+      <button onClick={() => history.back()}>Go back</button>
+
       {session && session.user.id === id && (
         <div>
           <h3>
-            <img
+            <Image
               src={session.user.image}
-              style={{ width: "50px", borderRadius: "50%" }}
+              alt="user-avatar"
+              width={50}
+              height={50}
+              style={{ borderRadius: "50%" }}
             />
             Hello {session.user.name}
           </h3>
@@ -69,10 +79,14 @@ export default function ProfilePage() {
       )}
       {(!session || (session && session.user.id !== id)) && (
         <div>
-          <img
+          <Image
             src={userInfo.image}
-            style={{ width: "50px", borderRadius: "50%" }}
+            alt="user-avatar"
+            width={50}
+            height={50}
+            style={{ borderRadius: "50%" }}
           />
+
           <h2>Profile page of {userInfo.name}</h2>
         </div>
       )}

@@ -8,7 +8,7 @@ import { useState } from "react";
 export default function App({ Component, pageProps }) {
   const [likedBeers, setLikedBeers] = useState([]);
 
-  const malzCategories = ["Pilsner", "Ale", "Lager", "Caramalt", "Munich"];
+  const malzCategories = ["Munich", "Ale", "Lager", "Pilsner", "Caramalt"];
 
   const fetchData = async () => {
     const fetchRequests = malzCategories.map((category) =>

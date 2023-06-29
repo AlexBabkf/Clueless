@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     const user = await User.findById(id);
     res.json({ user });
   }
-  console.log("USER");
+  console.log("USERS");
   if (req.method === "PATCH") {
     const name = req.body;
     console.log(req.body);

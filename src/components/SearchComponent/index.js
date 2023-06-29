@@ -52,6 +52,8 @@ export default function SearchComponent() {
 
   return (
     <div>
+      <button onClick={() => history.back()}>Go back</button>
+
       <h2>Find the beer(s) that suit(s) your taste!!!</h2>
       <form onSubmit={handleSubmit}>
         <div>
