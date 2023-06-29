@@ -25,6 +25,8 @@ export default function UserComments() {
   console.log(userComments);
   return (
     <div>
+      <button onClick={() => history.back()}>Go back</button>
+
       <h1>User comments</h1>
       <Comments comments={userComments} />
     </div>

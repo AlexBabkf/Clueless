@@ -4,6 +4,8 @@ import dbConnect from "@/lib/connect";
 export default async function handler(req, res) {
   await dbConnect();
 
+  console.log("ALL COMMENTS");
+
   if (req.method === "GET") {
     const id = req.query.id;
     const comment = await Comment.find(id);

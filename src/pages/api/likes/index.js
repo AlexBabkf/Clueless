@@ -6,7 +6,7 @@ import User from "@/models/User";
 export default async function handler(req, res) {
   await dbConnect();
   const session = await getServerSession(req, res, authOptions);
-
+  console.log("LIKES");
   if (req.method === "POST") {
     try {
       const { beerId } = req.body;
