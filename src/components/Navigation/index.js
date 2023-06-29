@@ -11,8 +11,8 @@ export default function NavigationBar() {
       <Link href="/search">
         <Image src="/search.png" alt="search-page" width={50} height={50} />
       </Link>
-      <Link href="/profile">
-        <Image src="/avatar.png" alt="profile-page" width={50} height={50} />
+      <Link href="/map">
+        <Image src="/gloobe.png" alt="map-page" width={50} height={50} />
       </Link>
     </StyledNavigation>
   );
