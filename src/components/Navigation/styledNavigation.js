@@ -9,6 +9,7 @@ export const StyledNavigation = styled.div`
   width: 100%;
   border: solid 1px black;
   bottom: 0;
+  z-index: 9999;
 
   a {
     margin: 10px;
