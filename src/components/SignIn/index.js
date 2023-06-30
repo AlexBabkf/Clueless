@@ -2,6 +2,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import { useState } from "react";
 import { StyledDropdown } from "./styledDropdown";
+import Link from "next/link";
 
 export default function SignIn() {
   const { data: session } = useSession();
@@ -10,7 +11,6 @@ export default function SignIn() {
   const handleOpen = () => {
     setOpen(!open);
   };
-
   if (session) {
     return (
       <>
@@ -28,6 +28,9 @@ export default function SignIn() {
             </button>
             {open ? (
               <ul className="menu">
+                <li className="menu-item">
+                  <Link href={`users/${session.user._id}`}>Profile</Link>
+                </li>
                 <li className="menu-item">
                   <button onClick={() => signOut()}>Sign out</button>
                 </li>

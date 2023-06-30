@@ -22,13 +22,14 @@ export default function UserComments() {
 
     fetchUserComments();
   }, [id]);
-  console.log(userComments);
   return (
     <div>
-      <button onClick={() => history.back()}>Go back</button>
-
       <h1>User comments</h1>
-      <Comments comments={userComments} />
+      {userComments.length > 0 ? (
+        <Comments comments={userComments} />
+      ) : (
+        <h4>No comments yet</h4>
+      )}
     </div>
   );
 }

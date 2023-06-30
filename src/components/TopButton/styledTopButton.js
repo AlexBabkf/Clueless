@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const StyledTopButton = styled.button`
-  z-index: 2;
+  z-index: 9999;
   position: fixed;
   cursor: pointer;
   bottom: 55px;
