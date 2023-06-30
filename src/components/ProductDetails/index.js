@@ -14,7 +14,6 @@ export default function ProductDetails({ beer }) {
 
   return (
     <div>
-      <button onClick={() => history.back()}>Go back</button>
       <StyledCard>
         <Image
           src={image_url}

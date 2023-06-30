@@ -26,7 +26,7 @@ export default function TopButton() {
 
   return (
     <StyledTopButton isSeen={isSeen} onClick={scrollToTop}>
-      <Image src="/top-arrow.png" alt="top-icon" width={10} height={10} />
+      <Image src="/topp.png" alt="top-icon" width={10} height={10} />
     </StyledTopButton>
   );
 }

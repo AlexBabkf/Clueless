@@ -43,8 +43,6 @@ export default function LikedBeers(props) {
 
   return (
     <div>
-      <button onClick={() => history.back()}>Go back</button>
-
       {likedIds.length > 0 ? (
         <div>
           <h2>Favorite Beers</h2>

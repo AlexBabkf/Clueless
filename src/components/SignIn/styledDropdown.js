@@ -13,7 +13,7 @@ export const StyledDropdown = styled.button`
 
   .menu {
     position: absolute;
-
+    z-index: 9999;
     list-style-type: none;
     margin: 5px 0;
     padding: 0;

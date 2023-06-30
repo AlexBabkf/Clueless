@@ -48,13 +48,10 @@ export default function ProfilePage() {
 
     getUser();
   }, [id]);
-  console.log(userInfo);
 
   return (
     <div>
-      <button onClick={() => history.back()}>Go back</button>
-
-      {session && session.user.id === id && (
+      {session && session.user._id === id && (
         <div>
           <h3>
             <Image
@@ -77,7 +74,7 @@ export default function ProfilePage() {
           </form>
         </div>
       )}
-      {(!session || (session && session.user.id !== id)) && (
+      {(!session || (session && session.user._id !== id)) && (
         <div>
           <Image
             src={userInfo.image}
