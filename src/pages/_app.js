@@ -3,11 +3,13 @@ import { SessionProvider } from "next-auth/react";
 import Header from "@/components/Header";
 import useSWR from "swr";
 import NavigationBar from "@/components/Navigation";
-import { useState } from "react";
 import TopButton from "@/components/TopButton";
+import useLocalStorageState from "use-local-storage-state";
 
 export default function App({ Component, pageProps }) {
-  const [likedBeers, setLikedBeers] = useState([]);
+  const [likedBeers, setLikedBeers] = useLocalStorageState("likedBeers", {
+    defaultValue: [[]],
+  });
 
   const malzCategories = ["Munich", "Ale", "Lager", "Pilsner", "Caramalt"];
 

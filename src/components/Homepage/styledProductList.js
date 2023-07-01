@@ -4,7 +4,6 @@ export const StyledList = styled.div`
   display: flex;
   scroll-behavior: smooth;
   flex-direction: column;
-  background-color: limegreen;
 
   .item {
     display: flex;
