@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { StyledCard } from "./styledProductCard";
 import { useState, useEffect } from "react";
-import LikeButton from "../LikeButton";
+import { StyledLikeButton } from "./styledLikeButton";
 import useLocalStorageState from "use-local-storage-state";
 
 export default function ProductCard({ handleLike, beer, onClick }) {
@@ -58,7 +58,9 @@ export default function ProductCard({ handleLike, beer, onClick }) {
 
   return (
     <div>
-      <LikeButton updateLike={updateLike} isLiked={isLiked} />
+      <StyledLikeButton onClick={updateLike}>
+        {isLiked ? "❤️" : "🖤"}
+      </StyledLikeButton>{" "}
       <StyledCard>
         <div className="card__left">
           <div onClick={onClick}>
