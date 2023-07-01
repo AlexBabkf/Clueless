@@ -48,12 +48,12 @@ export default function ProductDetails({ beer, closeCard }) {
         ) : (
           `Currently there are no food suggestions to pair with your ${name}`
         )}
-        <h5>The brewer suggests:</h5>
+        <h5>Brewer Suggestion:</h5>
         <p>{brewers_tips}</p>
+        <button onClick={closeCard} className="card__button">
+          X
+        </button>
       </div>
-      <button onClick={closeCard} className="card__button">
-        X
-      </button>
     </StyledDetailedCard>
   );
 }

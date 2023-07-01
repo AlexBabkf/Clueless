@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const StyledCard = styled.div`
-  background-color: #ebbb40;
+  background-image: url("beer-background2.jpg");
   border: 1px solid #ccc;
   height: 280px;
   width: 200px;
@@ -13,6 +13,7 @@ export const StyledCard = styled.div`
   cursor: pointer;
   display: flex;
   gap: 10px;
+  overflow-x: auto;
 
   .card__content {
     flex: 1;
@@ -20,6 +21,7 @@ export const StyledCard = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    margin: 2px;
   }
 
   .card__image {
@@ -28,4 +30,19 @@ export const StyledCard = styled.div`
     margin-right: 10px;
     align-self: flex-start;
   }
+`;
+
+export const StyledLikeButton = styled.button`
+  width: 48px;
+  height: 48px;
+  align-self: flex-start;
+  margin-top: 10px;
+  margin-left: 155px;
+  padding: unset;
+  font-size: 1.5em;
+  z-index: 2;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
 `;

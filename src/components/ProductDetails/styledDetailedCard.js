@@ -16,7 +16,7 @@ export const StyledDetailedCard = styled.div`
     rgba(0, 0, 0, 0.09) 0px 32px 16px;
 
   .card {
-    background-color: blanchedalmond;
+    background-image: url("beer-background4.jpg");
     border: 1px solid #ccc;
     position: relative;
     height: 80%;
