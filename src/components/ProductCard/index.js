@@ -1,10 +1,9 @@
 import Image from "next/image";
 import { StyledCard } from "./styledProductCard";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 
-export default function ProductCard({ handleLike, beer }) {
-  const { id, name, tagline, image_url } = beer;
+export default function ProductCard({ handleLike, beer, onClick }) {
+  const { id, name, tagline, image_url, abv } = beer;
 
   const [liked, setLiked] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -41,7 +40,7 @@ export default function ProductCard({ handleLike, beer }) {
         },
         body: JSON.stringify({ beerId: id }),
       });
-      console.log("LIKE");
+
       if (response.ok) {
         handleLike(id);
         setLiked(
@@ -56,7 +55,7 @@ export default function ProductCard({ handleLike, beer }) {
   return (
     <StyledCard>
       <button onClick={updateLike}>{isLiked ? "UnLike" : "Like"}</button>
-      <Link href={`/products/${id}`}>
+      <div onClick={onClick}>
         <Image
           src={image_url ?? "/Untitled.jpg"}
           alt="name"
@@ -64,10 +63,11 @@ export default function ProductCard({ handleLike, beer }) {
           height={150}
           className="card__image"
         />
-      </Link>
+      </div>
       <div className="card__content">
         <h3>{name}</h3>
         <h4>{tagline}</h4>
+        <h4>ABV: {abv}%</h4>
       </div>
     </StyledCard>
   );
