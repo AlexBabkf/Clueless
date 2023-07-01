@@ -1,11 +1,15 @@
 import Image from "next/image";
 import { StyledCard } from "./styledProductCard";
 import { useState, useEffect } from "react";
+import LikeButton from "../LikeButton";
+import useLocalStorageState from "use-local-storage-state";
 
 export default function ProductCard({ handleLike, beer, onClick }) {
   const { id, name, tagline, image_url, abv } = beer;
 
-  const [liked, setLiked] = useState([]);
+  const [liked, setLiked] = useLocalStorageState("liked", {
+    defaultValue: [[]],
+  });
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -53,22 +57,28 @@ export default function ProductCard({ handleLike, beer, onClick }) {
   }
 
   return (
-    <StyledCard>
-      <button onClick={updateLike}>{isLiked ? "UnLike" : "Like"}</button>
-      <div onClick={onClick}>
-        <Image
-          src={image_url ?? "/Untitled.jpg"}
-          alt="name"
-          width={50}
-          height={150}
-          className="card__image"
-        />
-      </div>
-      <div className="card__content">
-        <h3>{name}</h3>
-        <h4>{tagline}</h4>
-        <h4>ABV: {abv}%</h4>
-      </div>
-    </StyledCard>
+    <div>
+      <LikeButton updateLike={updateLike} isLiked={isLiked} />
+      <StyledCard>
+        <div className="card__left">
+          <div onClick={onClick}>
+            <Image
+              src={image_url ?? "/Untitled.jpg"}
+              alt="name"
+              width={50}
+              height={200}
+              className="card__image"
+            />
+          </div>
+        </div>
+        <div className="card__right">
+          <div className="card__content">
+            <h3>{name}</h3>
+            <h4>{tagline}</h4>
+            <h4>ABV: {abv}%</h4>
+          </div>
+        </div>
+      </StyledCard>
+    </div>
   );
 }

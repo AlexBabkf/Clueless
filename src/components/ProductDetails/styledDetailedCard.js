@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 export const StyledDetailedCard = styled.div`
   position: fixed;
+  z-index: 3;
   top: 0;
   left: 0;
   width: 100%;
