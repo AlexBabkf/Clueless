@@ -5,14 +5,21 @@ import useSWR from "swr";
 import NavigationBar from "@/components/Navigation";
 import TopButton from "@/components/TopButton";
 import useLocalStorageState from "use-local-storage-state";
+import Loading from "@/components/Loading";
+import { useState, useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
   const [likedBeers, setLikedBeers] = useLocalStorageState("likedBeers", {
     defaultValue: [[]],
   });
+  const [isLoading, setIsLoading] = useState(true);
 
   const malzCategories = ["Munich", "Ale", "Lager", "Pilsner", "Caramalt"];
-
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
   const fetchData = async () => {
     const fetchRequests = malzCategories.map((category) =>
       fetch(`https://api.punkapi.com/v2/beers?malt=${category}`).then(
@@ -36,16 +43,26 @@ export default function App({ Component, pageProps }) {
   };
 
   return (
-    <SessionProvider session={pageProps.session}>
-      <Header />
-      <Component
-        {...pageProps}
-        data={data}
-        likedBeers={likedBeers}
-        handleLike={handleLike}
-      />
-      <TopButton />
-      <NavigationBar />
-    </SessionProvider>
+    <div>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div>
+          (
+          <SessionProvider session={pageProps.session}>
+            <Header />
+            <Component
+              {...pageProps}
+              data={data}
+              likedBeers={likedBeers}
+              handleLike={handleLike}
+            />
+            <TopButton />
+            <NavigationBar />
+          </SessionProvider>
+          );
+        </div>
+      )}
+    </div>
   );
 }
