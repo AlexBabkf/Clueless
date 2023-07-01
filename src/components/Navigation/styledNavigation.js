@@ -1,11 +1,11 @@
 import styled, { css } from "styled-components";
 
-export const StyledNavigation = styled.div`
+export const StyledNavigation = styled.footer`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   position: sticky;
-  background-color: yellow;
+  background-color: #ebbb40;
   width: 100%;
   border: solid 1px black;
   bottom: 0;

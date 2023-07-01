@@ -4,7 +4,7 @@ export const StyledTopButton = styled.button`
   z-index: 9999;
   position: fixed;
   cursor: pointer;
-  bottom: 55px;
+  bottom: 78px;
   right: 10px;
   width: 40px;
   height: 40px;

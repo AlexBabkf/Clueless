@@ -1,7 +1,6 @@
 import Image from "next/image";
-import { StyledCard } from "./styledProductCard";
+import { StyledCard, StyledLikeButton } from "./styledComponents";
 import { useState, useEffect } from "react";
-import { StyledLikeButton } from "./styledLikeButton";
 import useLocalStorageState from "use-local-storage-state";
 
 export default function ProductCard({ handleLike, beer, onClick }) {
@@ -75,8 +74,10 @@ export default function ProductCard({ handleLike, beer, onClick }) {
         </div>
         <div className="card__right">
           <div className="card__content">
-            <h3>{name}</h3>
-            <h4>{tagline}</h4>
+            <h2>{name}</h2>
+            <h4>
+              <i>{tagline}</i>
+            </h4>
             <h4>ABV: {abv}%</h4>
           </div>
         </div>
