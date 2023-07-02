@@ -6,6 +6,8 @@ const userSchema = new Schema({
   email: String,
   image: String,
   liked: [{ type: String }],
+  bio: String,
+  favorite: String,
 });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);

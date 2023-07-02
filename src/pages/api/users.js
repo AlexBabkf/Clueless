@@ -14,10 +14,13 @@ export default async function handler(req, res) {
   }
   console.log("USERS");
   if (req.method === "PATCH") {
-    const name = req.body;
-    console.log(req.body);
-    const patch = await User.findByIdAndUpdate(session.user._id, {
-      $set: { name: name },
+    const { name, bio, favorite } = req.body;
+    const userData = {};
+    if (name) userData.name = name;
+    if (bio) userData.bio = bio;
+    if (favorite) userData.favorite = favorite;
+    const patch = await User.findByIdAndUpdate(session.user._id, userData, {
+      new: true,
     });
 
     res.status(200).json(patch);

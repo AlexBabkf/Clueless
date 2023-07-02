@@ -29,7 +29,7 @@ export default function SignIn() {
             {open ? (
               <ul className="menu">
                 <li className="menu-item">
-                  <Link href={`users/${session.user._id}`}>Profile</Link>
+                  <Link href={`/users/${session.user._id}`}>Profile</Link>
                 </li>
                 <li className="menu-item">
                   <button onClick={() => signOut()}>Sign out</button>
