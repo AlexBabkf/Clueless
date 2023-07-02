@@ -1,6 +1,6 @@
 import ProductCard from "../ProductCard";
 import { StyledList } from "./styledProductList";
-import ProductDetails from "../ProductDetails";
+import DetailedCard from "../DetailedCard";
 import { useState } from "react";
 
 export default function Homepage({ handleLike, data }) {
@@ -8,13 +8,12 @@ export default function Homepage({ handleLike, data }) {
 
   function showBeer(beer) {
     setSelected(beer);
-    console.log("Click");
   }
 
   function closeCard() {
     setSelected(null);
   }
-  console.log(selected);
+
   return (
     <div>
       <StyledList>
@@ -38,7 +37,7 @@ export default function Homepage({ handleLike, data }) {
           );
         })}
       </StyledList>
-      {selected && <ProductDetails beer={selected} closeCard={closeCard} />}
+      {selected && <DetailedCard beer={selected} closeCard={closeCard} />}
     </div>
   );
 }

@@ -17,7 +17,6 @@ export default function Comments({ comments }) {
     return `date: ${formattedDate} time: ${formattedTime}`;
   }
 
-  console.log(comments);
   return (
     <div>
       {comments ? (

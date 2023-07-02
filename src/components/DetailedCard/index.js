@@ -1,17 +1,9 @@
 import Image from "next/image";
 import { StyledDetailedCard } from "./styledDetailedCard";
+import Link from "next/link";
 
-export default function ProductDetails({ beer, closeCard }) {
-  const {
-    name,
-    tagline,
-    first_brewed,
-    description,
-    food_pairing,
-    brewers_tips,
-    image_url,
-    abv,
-  } = beer;
+export default function DetailedCard({ beer, closeCard }) {
+  const { id, name, tagline, first_brewed, description, image_url, abv } = beer;
 
   return (
     <StyledDetailedCard>
@@ -36,20 +28,7 @@ export default function ProductDetails({ beer, closeCard }) {
           />
           <p>{description}</p>
         </div>
-        {food_pairing ? (
-          <span className="card__pairing">
-            Foods to pair with your {name}:
-            <ul>
-              {food_pairing.map((food) => (
-                <li key={food}>{food}</li>
-              ))}
-            </ul>
-          </span>
-        ) : (
-          `Currently there are no food suggestions to pair with your ${name}`
-        )}
-        <h5>Brewer Suggestion:</h5>
-        <p>{brewers_tips}</p>
+        <Link href={`products/${id}`}>See detailed page</Link>
         <button onClick={closeCard} className="card__button">
           X
         </button>

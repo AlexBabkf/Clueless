@@ -4,7 +4,6 @@ export const StyledDropdown = styled.button`
   /* .dropdown {
     background: none;
     border: none;
-
   } */
 
   img {

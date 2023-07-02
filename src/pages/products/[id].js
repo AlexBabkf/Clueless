@@ -1,8 +1,7 @@
-import ProductDetails from "@/components/ProductDetails";
+import DetailedPage from "@/components/DetailedPage";
 import CommentForm from "@/components/CommentForm";
 import { useRouter } from "next/router";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
 import Comments from "@/components/Comments";
@@ -98,7 +97,7 @@ export default function DetailedProduct({ data }) {
 
   return (
     <>
-      <ProductDetails beer={beer[0]} />
+      <DetailedPage beer={beer[0]} />
       {session ? (
         <CommentForm user={session.user} beerId={id} addComment={addComment} />
       ) : (

@@ -1,11 +1,22 @@
 import { useState, useEffect } from "react";
 import ProductCard from "@/components/ProductCard";
 import { useRouter } from "next/router";
+import DetailedCard from "@/components/DetailedCard";
 
 export default function LikedBeers(props) {
   const [likedIds, setLikedIds] = useState([]);
   const [likedBeers, setLikedBeers] = useState([]);
+  const [selected, setSelected] = useState(null);
+
   const router = useRouter();
+
+  function showBeer(beer) {
+    setSelected(beer);
+  }
+
+  function closeCard() {
+    setSelected(null);
+  }
 
   const { id } = router.query;
   useEffect(() => {
@@ -48,9 +59,15 @@ export default function LikedBeers(props) {
           <h2>Favorite Beers</h2>
           <ul>
             {likedBeers.map((beer) => (
-              <ProductCard key={beer.id} beer={beer} {...props} />
+              <ProductCard
+                key={beer.id}
+                beer={beer}
+                {...props}
+                onClick={() => showBeer(beer)}
+              />
             ))}
           </ul>
+          {selected && <DetailedCard beer={selected} closeCard={closeCard} />}
         </div>
       ) : (
         <div>There are no liked beers yet...</div>

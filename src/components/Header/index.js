@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Header() {
   return (
     <StyledHeader>
-      <button onClick={() => history.back()}>
+      <button onClick={() => history.back()} className="back-button">
         <Image src="/left-trn.png" alt="go-back" width={30} height={30} />
       </button>
       <SignIn className="sign-in" />
