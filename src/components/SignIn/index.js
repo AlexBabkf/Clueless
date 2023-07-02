@@ -44,7 +44,7 @@ export default function SignIn() {
   return (
     <>
       <button onClick={() => signIn()} className="sign-in">
-        Sign in
+        <b>Sign in</b>
       </button>
     </>
   );

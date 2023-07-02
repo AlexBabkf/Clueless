@@ -1,8 +1,18 @@
 import { useState } from "react";
 import ProductCard from "@/components/ProductCard";
+import DetailedCard from "../DetailedCard";
 
 export default function SearchComponent() {
   const [searchResults, setSearchResults] = useState([]);
+  const [selected, setSelected] = useState(null);
+
+  function showBeer(beer) {
+    setSelected(beer);
+  }
+
+  function closeCard() {
+    setSelected(null);
+  }
   const [searchCriteria, setSearchCriteria] = useState({
     abv_gt: "",
     abv_lt: "",
@@ -143,9 +153,14 @@ export default function SearchComponent() {
           <h2>Search Results:</h2>
           <ul>
             {searchResults.map((beer) => (
-              <ProductCard key={beer.id} beer={beer} />
+              <ProductCard
+                key={beer.id}
+                beer={beer}
+                onClick={() => showBeer(beer)}
+              />
             ))}
           </ul>
+          {selected && <DetailedCard beer={selected} closeCard={closeCard} />}
         </div>
       )}
     </div>

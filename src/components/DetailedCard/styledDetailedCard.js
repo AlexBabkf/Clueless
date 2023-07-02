@@ -19,7 +19,8 @@ export const StyledDetailedCard = styled.div`
     background-image: url("beer-background4.jpg");
     border: 1px solid #ccc;
     position: relative;
-    height: 80%;
+    bottom: 10;
+    height: 50%;
     width: 50%;
     padding: 20px;
     border-radius: 5px;
