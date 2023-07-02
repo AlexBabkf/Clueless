@@ -1,37 +1,17 @@
 import { useSession } from "next-auth/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import Profile from "@/components/Profile";
+import UserForm from "@/components/UserUpdate";
 
 export default function ProfilePage() {
   const { data: session } = useSession();
-  const [username, setUsername] = useState("");
   const [userInfo, setUserInfo] = useState({});
+  const [card, setCard] = useState(false);
+
   const router = useRouter();
 
   const { id } = router.query;
-
-  function handleChangeUsername(event) {
-    setUsername(event.target.value);
-  }
-
-  async function changeName(event) {
-    event.preventDefault();
-    const confirmation = window.confirm(
-      "Are you sure you want to change your username?"
-    );
-
-    if (confirmation) {
-      await fetch("/api/users", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(username),
-      });
-    }
-    router.reload();
-  }
 
   useEffect(() => {
     async function getUser() {
@@ -49,48 +29,21 @@ export default function ProfilePage() {
     getUser();
   }, [id]);
 
+  function showCard() {
+    setCard(true);
+  }
+
+  function closeCard() {
+    setCard(false);
+  }
+
   return (
     <div>
       {session && session.user._id === id && (
-        <div>
-          <h3>
-            <Image
-              src={session.user.image}
-              alt="user-avatar"
-              width={50}
-              height={50}
-              style={{ borderRadius: "50%" }}
-            />
-            Hello {session.user.name}
-          </h3>
-          <form onSubmit={changeName}>
-            <h4>Change UserName:</h4>
-            <input
-              type="text"
-              value={username}
-              onChange={handleChangeUsername}
-            />
-            <button type="submit">Change Username</button>
-          </form>
-        </div>
+        <button onClick={showCard}>Update user Profile</button>
       )}
-      {(!session || (session && session.user._id !== id)) && (
-        <div>
-          <Image
-            src={userInfo.image}
-            alt="user-avatar"
-            width={50}
-            height={50}
-            style={{ borderRadius: "50%" }}
-          />
-
-          <h2>Profile page of {userInfo.name}</h2>
-        </div>
-      )}
-      <h3>See liked beers</h3>
-      <Link href={`/users/${id}/likes`}>here</Link>
-      <h3>See comments</h3>
-      <Link href={`/users/${id}/comments`}>here</Link>
+      {card && <UserForm closeCard={closeCard} change />}
+      <Profile userInfo={userInfo} id={id} />
     </div>
   );
 }
