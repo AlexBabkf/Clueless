@@ -26,7 +26,7 @@ export default function DetailedCard({ beer, closeCard }) {
             height={320}
             className="card__image"
           />
-          <p>{description}</p>
+          <p className="description">{description}</p>
         </div>
         <Link href={`products/${id}`}>See detailed page</Link>
         <button onClick={closeCard} className="card__button">

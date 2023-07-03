@@ -16,7 +16,13 @@
 }
 
 body {
-  background-color: #252629;
+  background: rgb(103, 102, 86);
+  background: linear-gradient(
+    90deg,
+    rgba(103, 102, 86, 1) 0%,
+    rgba(184, 173, 97, 1) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 /* required styles */

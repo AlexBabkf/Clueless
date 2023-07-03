@@ -48,7 +48,6 @@ export default function App({ Component, pageProps }) {
         <Loading />
       ) : (
         <div>
-          (
           <SessionProvider session={pageProps.session}>
             <Header />
             <Component
@@ -60,7 +59,6 @@ export default function App({ Component, pageProps }) {
             <TopButton />
             <NavigationBar />
           </SessionProvider>
-          );
         </div>
       )}
     </div>

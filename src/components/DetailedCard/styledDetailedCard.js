@@ -20,8 +20,8 @@ export const StyledDetailedCard = styled.div`
     border: 1px solid #ccc;
     position: relative;
     bottom: 10;
-    height: 50%;
-    width: 50%;
+    height: 70%;
+    width: 30%;
     padding: 20px;
     border-radius: 5px;
     overflow: auto;
@@ -44,6 +44,10 @@ export const StyledDetailedCard = styled.div`
 
   .card__content {
     overflow: hidden;
+  }
+
+  .description {
+    font-size: 20px;
   }
 
   .card__button {
@@ -73,5 +77,16 @@ export const StyledDetailedCard = styled.div`
 
   .card__pairing ul li {
     list-style-type: disc;
+  }
+
+  @media (max-width: 767px) {
+    .card {
+      height: 60%;
+      width: 70%;
+    }
+
+    .description {
+      font-size: 19px;
+    }
   }
 `;
