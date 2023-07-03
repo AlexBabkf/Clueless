@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <StyledHeader>
       <button onClick={() => history.back()} className="back-button">
-        <Image src="/left-trn.png" alt="go-back" width={30} height={30} />
+        <Image src="/left-trn.png" alt="go-back" width={40} height={40} />
       </button>
       <SignIn className="sign-in" />
 

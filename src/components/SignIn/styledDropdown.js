@@ -1,14 +1,10 @@
 import styled, { css } from "styled-components";
 
 export const StyledDropdown = styled.button`
-  /* .dropdown {
-    background: none;
-    border: none;
-  } */
-
-  img {
-    cursor: pointer;
-  }
+  background: none;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
 
   .menu {
     position: absolute;
@@ -48,5 +44,15 @@ export const StyledDropdown = styled.button`
     margin: 0;
     font: inherit;
     cursor: pointer;
+  }
+
+  @media (max-width: 767px) {
+    margin-top: 7px;
+    position: relative;
+
+    .menu {
+      position: absolute;
+      right: 0;
+    }
   }
 `;

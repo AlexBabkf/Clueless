@@ -47,6 +47,7 @@ export const StyledHeader = styled.header`
     color: black;
     border: none;
     cursor: pointer;
+    font-size: 20px;
   }
 
   .back-button {
@@ -55,5 +56,11 @@ export const StyledHeader = styled.header`
     color: black;
     border: none;
     cursor: pointer;
+  }
+
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 50px;
+    }
   }
 `;
