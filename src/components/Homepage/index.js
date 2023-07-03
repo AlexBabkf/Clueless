@@ -2,6 +2,7 @@ import ProductCard from "../ProductCard";
 import { StyledList } from "./styledProductList";
 import DetailedCard from "../DetailedCard";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Homepage({ handleLike, data }) {
   const [selected, setSelected] = useState(null);
@@ -21,8 +22,8 @@ export default function Homepage({ handleLike, data }) {
           const category = Object.keys(categoryData)[0];
           const beers = categoryData[category];
           return (
-            <div key={category}>
-              <h2>{category} malt</h2>
+            <div className="container" key={category}>
+              <h2 className="category">{category} malt</h2>
               <div className="item">
                 {beers.map((beer) => (
                   <ProductCard

@@ -4,7 +4,7 @@ export const StyledNavigation = styled.footer`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  position: sticky;
+  position: fixed;
   background-color: #ebbb40;
   width: 100%;
   border: solid 1px black;

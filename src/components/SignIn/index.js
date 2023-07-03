@@ -15,17 +15,15 @@ export default function SignIn() {
     return (
       <>
         <h3>
-          <StyledDropdown>
-            <button onClick={handleOpen} className="dropdown">
-              {" "}
-              <Image
-                src={session.user.image}
-                alt="profile-pic"
-                width={50}
-                height={50}
-                style={{ borderRadius: "50%" }}
-              />
-            </button>
+          <StyledDropdown onClick={handleOpen}>
+            <Image
+              src={session.user.image}
+              alt="profile-pic"
+              width={50}
+              height={50}
+              style={{ borderRadius: "50%" }}
+            />
+
             {open ? (
               <ul className="menu">
                 <li className="menu-item">
