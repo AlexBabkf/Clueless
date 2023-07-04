@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { StyledComments } from "./styledComments";
 
 export default function Comments({ comments }) {
   function formatDate(dateString) {
@@ -18,7 +19,7 @@ export default function Comments({ comments }) {
   }
 
   return (
-    <div>
+    <StyledComments>
       {comments ? (
         <ul>
           {comments.map((comment) => (
@@ -39,6 +40,6 @@ export default function Comments({ comments }) {
       ) : (
         <div>No comments yet. Why don&apos;t you add one, fellow?</div>
       )}
-    </div>
+    </StyledComments>
   );
 }

@@ -29,5 +29,6 @@ export const StyledProfile = styled.div`
     margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
+    font-size: 25px;
   }
 `;
