@@ -2,10 +2,11 @@ import Image from "next/image";
 import { StyledCard, StyledLikeButton } from "./styledComponents";
 import { useState, useEffect } from "react";
 import useLocalStorageState from "use-local-storage-state";
+import { useSession } from "next-auth/react";
 
 export default function ProductCard({ handleLike, beer, onClick }) {
   const { id, name, tagline, image_url, abv } = beer;
-
+  const { data: session } = useSession();
   const [liked, setLiked] = useLocalStorageState("liked", {
     defaultValue: [[]],
   });
@@ -57,12 +58,9 @@ export default function ProductCard({ handleLike, beer, onClick }) {
 
   return (
     <div>
-      <StyledLikeButton onClick={updateLike}>
-        {isLiked ? "❤️" : "🖤"}
-      </StyledLikeButton>{" "}
-      <StyledCard>
+      <StyledCard onClick={onClick}>
         <div className="card__left">
-          <div onClick={onClick}>
+          <div>
             <Image
               src={image_url ?? "/bottle.jpg"}
               alt="name"
@@ -81,6 +79,11 @@ export default function ProductCard({ handleLike, beer, onClick }) {
             <h4>ABV: {abv}%</h4>
           </div>
         </div>
+        {session && (
+          <StyledLikeButton onClick={updateLike}>
+            {isLiked ? "❤️" : "🖤"}
+          </StyledLikeButton>
+        )}
       </StyledCard>
     </div>
   );
