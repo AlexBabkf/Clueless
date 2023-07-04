@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import DetailedCard from "../DetailedCard";
+import { StyledSearch } from "./styledSearch";
 
 export default function SearchComponent() {
   const [searchResults, setSearchResults] = useState([]);
@@ -61,7 +62,7 @@ export default function SearchComponent() {
   }
 
   return (
-    <div>
+    <StyledSearch>
       <h2>Find the beer(s) that suit(s) your taste!!!</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -163,6 +164,6 @@ export default function SearchComponent() {
           {selected && <DetailedCard beer={selected} closeCard={closeCard} />}
         </div>
       )}
-    </div>
+    </StyledSearch>
   );
 }
