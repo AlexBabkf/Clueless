@@ -64,7 +64,7 @@ export default function ProductCard({ handleLike, beer, onClick }) {
         <div className="card__left">
           <div onClick={onClick}>
             <Image
-              src={image_url ?? "/Untitled.jpg"}
+              src={image_url ?? "/bottle.jpg"}
               alt="name"
               width={50}
               height={200}
