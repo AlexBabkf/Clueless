@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const StyledCard = styled.div`
-  background-image: url("beer-background2.jpg");
+  background-image: url("/beer-background2.jpg");
   border: 1px solid #ccc;
   height: 280px;
   width: 200px;

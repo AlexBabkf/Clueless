@@ -23,6 +23,7 @@ body {
     rgba(184, 173, 97, 1) 50%,
     rgba(0, 0, 0, 1) 100%
   );
+  margin-bottom: 90px;
 }
 
 /* required styles */
