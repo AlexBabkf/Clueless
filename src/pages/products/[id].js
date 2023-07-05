@@ -2,7 +2,7 @@ import DetailedPage from "@/components/DetailedPage";
 import CommentForm from "@/components/CommentForm";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import useSWR from "swr";
 import Comments from "@/components/Comments";
 
@@ -90,7 +90,12 @@ export default function DetailedProduct({ data }) {
         console.error(error);
       }
     }
+
     getComments();
+
+    const interval = setInterval(getComments, 5000);
+
+    return () => clearInterval(interval);
   }, [id]);
 
   if (!beer) return;
