@@ -28,7 +28,7 @@ export default function DetailedCard({ beer, closeCard }) {
           />
           <p className="description">{description}</p>
         </div>
-        <Link href={`products/${id}`}>See detailed page</Link>
+        <Link href={`/products/${id}`}>See detailed page</Link>
         <button onClick={closeCard} className="card__button">
           X
         </button>
