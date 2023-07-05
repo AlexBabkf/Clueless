@@ -24,7 +24,8 @@ export const StyledDropdown = styled.button`
 
   .menu > li {
     margin: 0;
-
+    border: 1px solid grey;
+    /* width: 100%; */
     background-color: white;
   }
 
@@ -32,11 +33,11 @@ export const StyledDropdown = styled.button`
     background-color: lightgray;
   }
 
-  .menu > li > button {
+  .menu-item {
     width: 100%;
     height: 100%;
     text-align: left;
-
+    border: 1px solid grey;
     background: none;
     color: inherit;
     border: none;

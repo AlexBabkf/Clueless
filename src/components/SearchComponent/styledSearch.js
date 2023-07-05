@@ -6,8 +6,21 @@ export const StyledSearch = styled.div`
   padding: 20px;
 
   h2 {
-    color: #333;
     margin-bottom: 20px;
+
+    position: relative;
+    display: inline-block;
+  }
+
+  h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 2px;
+    background-image: linear-gradient(to left, #ff0000, rgba(255, 0, 0, 0));
+    z-index: -1;
   }
 
   h5 {

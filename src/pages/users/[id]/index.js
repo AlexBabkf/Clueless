@@ -40,7 +40,7 @@ export default function ProfilePage() {
   return (
     <div>
       {session && session.user._id === id && (
-        <button onClick={showCard}>Update user Profile</button>
+        <button onClick={showCard}>Update your Profile</button>
       )}
       {card && <UserForm closeCard={closeCard} change />}
       <Profile userInfo={userInfo} id={id} />
