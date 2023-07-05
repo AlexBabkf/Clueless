@@ -56,6 +56,11 @@ export default function ProductCard({ handleLike, beer, onClick }) {
     }
   }
 
+  function finalLike(event) {
+    event.stopPropagation();
+    updateLike();
+  }
+
   return (
     <div>
       <StyledCard onClick={onClick}>
@@ -80,7 +85,7 @@ export default function ProductCard({ handleLike, beer, onClick }) {
           </div>
         </div>
         {session && (
-          <StyledLikeButton onClick={updateLike}>
+          <StyledLikeButton onClick={finalLike}>
             {isLiked ? "❤️" : "🖤"}
           </StyledLikeButton>
         )}

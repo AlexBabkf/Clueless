@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ProductCard from "@/components/ProductCard";
 import { useRouter } from "next/router";
 import DetailedCard from "@/components/DetailedCard";
+import { StyledSearch } from "@/components/SearchComponent/styledSearch";
 
 export default function LikedBeers(props) {
   const [likedIds, setLikedIds] = useState([]);
@@ -53,7 +54,7 @@ export default function LikedBeers(props) {
   }, [likedIds]);
 
   return (
-    <div>
+    <StyledSearch>
       {likedIds.length > 0 ? (
         <div>
           <h2>Favorite Beers</h2>
@@ -72,6 +73,6 @@ export default function LikedBeers(props) {
       ) : (
         <div>There are no liked beers yet...</div>
       )}
-    </div>
+    </StyledSearch>
   );
 }
