@@ -20,20 +20,17 @@ export const StyledComments = styled.div`
     border: 1px solid #ccc;
     border-radius: 10px;
     background-image: url("/beer-background.jpg");
+    width: 80%;
   }
 
   h4 {
-    font-size: 14px;
+    font-size: 17px;
     margin-bottom: 5px;
   }
 
-  h4 a {
-    text-decoration: none;
-    color: #000;
-  }
-
   p {
-    font-size: 14px;
+    font-size: 20px;
+
     margin-top: 5px;
   }
 `;

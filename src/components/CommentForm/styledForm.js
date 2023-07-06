@@ -11,7 +11,8 @@ export const StyledForm = styled.form`
   }
 
   textarea {
-    width: 100%;
+    width: 40%;
+    height: 30%;
     padding: 10px;
     font-size: 14px;
     border-radius: 5px;
