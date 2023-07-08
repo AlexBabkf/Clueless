@@ -7,13 +7,16 @@ export default function UserComments() {
   const router = useRouter();
 
   const { id } = router.query;
+  console.log(id);
   useEffect(() => {
     async function fetchUserComments() {
       try {
-        const response = await fetch(`/api/comments?userId=${id}`);
+        const response = await fetch(`/api/comments`);
         const data = await response.json();
         if (data.comment) {
-          setUserComments(data.comment);
+          setUserComments(
+            data.comment.filter((comment) => comment.userId === id)
+          );
         }
       } catch (error) {
         console.error(error);
