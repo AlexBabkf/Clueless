@@ -26,6 +26,54 @@ body {
   margin-bottom: 90px;
 }
 
+/* When there is no API */
+
+.noapi {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  letter-spacing: 12px;
+}
+
+.noapi::before,
+.noapi::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.noapi::before {
+  color: #ff03c0;
+  animation: glitch 3s infinite;
+}
+
+.noapi::after {
+  color: #3498db;
+  animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    left: -3px;
+  }
+  25% {
+    left: 3px;
+  }
+  50% {
+    left: -3px;
+  }
+  75% {
+    left: 3px;
+  }
+  100% {
+    left: -3px;
+  }
+}
+
 /* required styles */
 
 .leaflet-pane,

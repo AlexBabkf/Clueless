@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }) {
 
   const { data } = useSWR("malzData", fetchData);
 
-  if (!data) return;
+  // if (!data) return;
 
   const handleLike = (id) => {
     setLikedBeers((previous) => [...previous, id]);
