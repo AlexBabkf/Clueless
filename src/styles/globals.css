@@ -74,6 +74,12 @@ body {
   }
 }
 
+@media (max-width: 767px) {
+  .noapi {
+    font-size: 21px;
+  }
+}
+
 /* required styles */
 
 .leaflet-pane,
